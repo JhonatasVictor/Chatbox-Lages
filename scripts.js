@@ -223,7 +223,7 @@ function confirmarQuantidade() {
         return finalizarPedido();
     }
 
-    function finalizarPedido() {
+    /*function finalizarPedido() {
         const total = calcularTotalItens() + TAXA_ENTREGA;
         let mensagem = `Pedido finalizado! 🎉<br><br>
         Nome: ${dadosCliente.nome}<br>
@@ -240,8 +240,47 @@ function confirmarQuantidade() {
         mensagem += "Obrigado por comprar com a Hamburgueria Lages! 🍔";
 
         etapaPedido = 'finalizado';
-        return mensagem;
+        return mensagem; 
+    } */
+
+        function finalizarPedido() {
+    const total = calcularTotalItens() + TAXA_ENTREGA;
+
+    // Montar o resumo do pedido em texto
+    let resumo = `🛍️ *Pedido Realizado!*%0A`;
+    pedidoAtual.forEach((item, index) => {
+        resumo += `• ${item.nome} - ${formatarPreco(item.preco)}%0A`;
+    });
+
+    resumo += `%0A📍 *Endereço:* ${dadosCliente.endereco}`;
+    resumo += `%0A👤 *Cliente:* ${dadosCliente.nome}`;
+    resumo += `%0A💳 *Pagamento:* ${formaPagamento}`;
+
+    if (formaPagamento === "Dinheiro" && precisaTroco) {
+        const troco = valorEmMaos - total;
+        resumo += `%0A💰 *Valor em mãos:* ${formatarPreco(valorEmMaos)}`;
+        resumo += `%0A💵 *Troco:* ${formatarPreco(troco)}`;
     }
+
+    resumo += `%0A🚚 *Entrega:* ${formatarPreco(TAXA_ENTREGA)}`;
+    resumo += `%0A🧾 *Total:* ${formatarPreco(total)}`;
+    resumo += `%0A%0AObrigado por comprar com a Hamburgueria Lages! 🍔`;
+
+    // Número do seu WhatsApp com DDI + DDD + número (sem espaços ou traços)
+    const numeroWhatsApp = "5521973043816"; // <- Coloque seu número aqui
+
+    // Link que abrirá o WhatsApp
+    const url = `https://wa.me/${numeroWhatsApp}?text=${resumo}`;
+
+    // Cria botão para o cliente clicar e te chamar no WhatsApp
+    let mensagemFinal = `Pedido finalizado! 🎉<br><br>`;
+    mensagemFinal += `Clique no botão abaixo para enviar seu pedido via WhatsApp:<br><br>`;
+    mensagemFinal += `<a href="${url}" target="_blank" style="padding: 12px 20px; background-color: #25d366; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">📲 Enviar Pedido no WhatsApp</a>`;
+
+    etapaPedido = 'finalizado';
+    return mensagemFinal;
+}
+
 
     function processMessage(message) {
         const msgLower = message.toLowerCase().trim();
