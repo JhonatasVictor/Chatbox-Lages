@@ -237,7 +237,7 @@ function confirmarQuantidade() {
         }
 
         mensagem += `Total com entrega: <strong>${formatarPreco(total)}</strong><br><br>`;
-        mensagem += "Obrigado por comprar com a Hamburgueria Virtual! 🍔";
+        mensagem += "Obrigado por comprar com a Hamburgueria Lages! 🍔";
 
         etapaPedido = 'finalizado';
         return mensagem;
