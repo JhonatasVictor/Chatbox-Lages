@@ -1,0 +1,205 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #fff6f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 500px;
+    height: 90vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid #ff7f50;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(231, 93, 46, 0.2);
+}
+
+.chat-header {
+    background-color: #ff7f50;
+    color: white;
+    padding: 14px 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(211, 57, 6, 0.3);
+    z-index: 1;
+}
+
+.chat-box {
+    flex: 1;
+    padding: 20px 15px;
+    overflow-y: auto;
+    background-color: #fff0e9; /* Laranja claro bem suave */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mensagens */
+.bot-message,
+.user-message {
+    max-width: 75%;
+    padding: 10px 14px;
+    margin: 6px 0;
+    border-radius: 16px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    font-size: 15px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    animation: fadeInUp 0.3s ease;
+    position: relative;
+}
+
+/* Estilo da mensagem do bot (lado esquerdo) */
+.bot-message {
+    background-color: #ffffff;
+    color: #444;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+}
+
+/* Estilo da mensagem do usuário (lado direito) */
+.user-message {
+    background-color: #ff7f50;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+}
+
+/* Campo de entrada */
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ffe2d5;
+    padding: 12px 10px;
+    background-color: #ffffff;
+    gap: 10px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ffccbc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 15px;
+    background-color: #fff7f4;
+}
+
+/* Botão de envio */
+#send-button {
+    padding: 10px 18px;
+    background-color: white;
+    color: #ff7f50;
+    border: 2px solid #ff7f50;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#send-button:hover {
+    background-color: #e75d2e;
+    color: white;
+    border-color: #e75d2e;
+}
+
+/* Total do pedido e destaques */
+.total-pedido {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #e75d2e;
+}
+
+strong {
+    color: #e75d2e;
+}
+
+/* Botões de cardápio */
+.item-cardapio button {
+    background-color: #ff7f50;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin: 0 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.item-cardapio button:hover {
+    background-color: #e75d2e;
+}
+
+.item-cardapio span {
+    font-weight: bold;
+    min-width: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Animação para entrada suave */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    body {
+        height: 100dvh;
+    }
+
+    .chat-header {
+        h1 {
+            font-size: 1.6rem;
+        }
+    }
+
+    .chat-container {
+        height: 100dvh;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .chat-box {
+        padding: 10px 8px;
+    }
+
+    #user-input {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    #send-button {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .bot-message,
+    .user-message {
+        font-size: 14px;
+        max-width: 85%;
+    }
+
+    .item-cardapio button {
+        font-size: 13px;
+        padding: 4px 10px;
+    }
+
+    .item-cardapio span {
+        font-size: 14px;
+    }
+}
