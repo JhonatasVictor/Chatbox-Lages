@@ -280,7 +280,7 @@ function confirmarQuantidade() {
     resumo += `%0A%0A*Obrigado por comprar com a Hamburgueria Lages!* 🍔`;
 
     // Número do WhatsApp da loja (com DDI + DDD)
-    const numeroWhatsApp = "5511999999999"; // <- Altere aqui
+    const numeroWhatsApp = "5521973043816"; // <- Altere aqui
 
     // Criar link com mensagem pronta
     const url = `https://wa.me/${numeroWhatsApp}?text=${resumo}`;
