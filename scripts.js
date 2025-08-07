@@ -277,7 +277,7 @@ function confirmarQuantidade() {
 
     resumo += `%0A🚚 *Entrega:* ${formatarPreco(TAXA_ENTREGA)}`;
     resumo += `%0A🧾 *Total:* ${formatarPreco(total)}`;
-    resumo += `%0A%0A*Obrigado por comprar com a Hamburgueria Lages!* 🍔`;
+    resumo += `%0A%0A*Pedido Anotado com Sucesso ✅, Obrigado pela preferência!* 🍔`;
 
     // Número do WhatsApp da loja (com DDI + DDD)
     const numeroWhatsApp = "5521973043816"; // <- Altere aqui
