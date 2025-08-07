@@ -243,13 +243,25 @@ function confirmarQuantidade() {
         return mensagem; 
     } */
 
-        function finalizarPedido() {
+      function finalizarPedido() {
     const total = calcularTotalItens() + TAXA_ENTREGA;
 
-    // Montar o resumo do pedido em texto
-    let resumo = `🛍️ *Pedido Realizado!*%0A`;
-    pedidoAtual.forEach((item, index) => {
-        resumo += `• ${item.nome} - ${formatarPreco(item.preco)}%0A`;
+    // Agrupar itens repetidos
+    const itensAgrupados = {};
+    pedidoAtual.forEach(item => {
+        if (itensAgrupados[item.nome]) {
+            itensAgrupados[item.nome].quantidade += 1;
+        } else {
+            itensAgrupados[item.nome] = { ...item, quantidade: 1 };
+        }
+    });
+
+    // Montar o resumo do pedido
+    let resumo = `🛍️ *Pedido Realizado!*%0A%0A`;
+
+    Object.values(itensAgrupados).forEach(item => {
+        const precoTotalItem = item.preco * item.quantidade;
+        resumo += `• ${item.quantidade}x ${item.nome} - ${formatarPreco(precoTotalItem)}%0A`;
     });
 
     resumo += `%0A📍 *Endereço:* ${dadosCliente.endereco}`;
@@ -264,22 +276,21 @@ function confirmarQuantidade() {
 
     resumo += `%0A🚚 *Entrega:* ${formatarPreco(TAXA_ENTREGA)}`;
     resumo += `%0A🧾 *Total:* ${formatarPreco(total)}`;
-    resumo += `%0A%0AObrigado por comprar com a Hamburgueria Lages! 🍔`;
+    resumo += `%0A%0A*Obrigado por comprar com a Hamburgueria Lages!* 🍔`;
 
-    // Número do seu WhatsApp com DDI + DDD + número (sem espaços ou traços)
-    const numeroWhatsApp = "5521973043816"; // <- Coloque seu número aqui
+    // Número do WhatsApp da loja (com DDI + DDD)
+    const numeroWhatsApp = "5511999999999"; // <- Altere aqui
 
-    // Link que abrirá o WhatsApp
+    // Criar link com mensagem pronta
     const url = `https://wa.me/${numeroWhatsApp}?text=${resumo}`;
 
-    // Cria botão para o cliente clicar e te chamar no WhatsApp
-    let mensagemFinal = `Pedido finalizado! 🎉<br><br>`;
-    mensagemFinal += `Clique no botão abaixo para enviar seu pedido via WhatsApp:<br><br>`;
-    mensagemFinal += `<a href="${url}" target="_blank" style="padding: 12px 20px; background-color: #25d366; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">📲 Enviar Pedido no WhatsApp</a>`;
+    // Enviar diretamente (abrir nova aba com a mensagem pronta no WhatsApp)
+    window.open(url, "_blank");
 
     etapaPedido = 'finalizado';
-    return mensagemFinal;
+    return "Pedido enviado para o WhatsApp da loja!";
 }
+
 
 
     function processMessage(message) {
