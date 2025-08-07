@@ -267,6 +267,7 @@ function confirmarQuantidade() {
     resumo += `%0A📍 *Endereço:* ${dadosCliente.endereco}`;
     resumo += `%0A👤 *Cliente:* ${dadosCliente.nome}`;
     resumo += `%0A💳 *Pagamento:* ${formaPagamento}`;
+    resumo += `%0A⏳ *Tempo estimado de entrega:* 50 minutos`;
 
     if (formaPagamento === "Dinheiro" && precisaTroco) {
         const troco = valorEmMaos - total;
