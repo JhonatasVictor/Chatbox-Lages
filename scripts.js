@@ -42,9 +42,9 @@
         { id: 5, nome: "Onion Rings", preco: 9.50, descricao: "Anéis de cebola empanados e fritos até a perfeição." }
     ],
     bebidas: [
-        { id: 6, nome: "Refrigerante (Coca-Cola)", preco: 5.00 },
-        { id: 7, nome: "Refrigerante (Guaraná)", preco: 5.00 },
-        { id: 8, nome: "Refrigerante (Fanta Laranja)", preco: 5.00 },
+        { id: 6, nome: "Refrigerante (Coca-Cola 350ml)", preco: 5.00 },
+        { id: 7, nome: "Refrigerante (Guaraná 350ml)", preco: 5.00 },
+        { id: 8, nome: "Refrigerante (Fanta Laranja 350ml)", preco: 5.00 },
         { id: 9, nome: "Suco Natural de Laranja", preco: 6.50 },
         { id: 10, nome: "Suco Natural de Maracujá", preco: 6.50 }
     ]
