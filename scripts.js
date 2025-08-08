@@ -17,20 +17,39 @@
     const TAXA_ENTREGA = 4.50;
 
     const cardapio = {
-        hamburgueres: [
-            { id: 1, nome: "X-Burguer", preco: 15.00 },
-            { id: 2, nome: "X-Salada", preco: 17.50 },
-            { id: 3, nome: "X-Bacon", preco: 18.50 }
-        ],
-        acompanhamentos: [
-            { id: 4, nome: "Batata Frita", preco: 8.00 },
-            { id: 5, nome: "Onion Rings", preco: 9.50 }
-        ],
-        bebidas: [
-            { id: 6, nome: "Refrigerante", preco: 5.00 },
-            { id: 7, nome: "Suco Natural", preco: 6.50 }
-        ]
-    };
+    hamburgueres: [
+        { 
+            id: 1, 
+            nome: "X-Burguer", 
+            preco: 15.00, 
+            descricao: "Pão macio, hambúrguer artesanal 150g e queijo cheddar derretido."
+        },
+        { 
+            id: 2, 
+            nome: "X-Salada", 
+            preco: 17.50, 
+            descricao: "Pão, hambúrguer artesanal 150g, queijo cheddar, alface e tomate frescos."
+        },
+        { 
+            id: 3, 
+            nome: "X-Bacon", 
+            preco: 18.50, 
+            descricao: "Pão, hambúrguer artesanal 150g, queijo cheddar e fatias generosas de bacon crocante."
+        }
+    ],
+    acompanhamentos: [
+        { id: 4, nome: "Batata Frita", preco: 8.00, descricao: "Porção de batata frita crocante e dourada." },
+        { id: 5, nome: "Onion Rings", preco: 9.50, descricao: "Anéis de cebola empanados e fritos até a perfeição." }
+    ],
+    bebidas: [
+        { id: 6, nome: "Refrigerante (Coca-Cola)", preco: 5.00 },
+        { id: 7, nome: "Refrigerante (Guaraná)", preco: 5.00 },
+        { id: 8, nome: "Refrigerante (Fanta Laranja)", preco: 5.00 },
+        { id: 9, nome: "Suco Natural de Laranja", preco: 6.50 },
+        { id: 10, nome: "Suco Natural de Maracujá", preco: 6.50 }
+    ]
+};
+
 
     function formatarPreco(valor) {
         return "R$ " + valor.toFixed(2).replace('.', ',');
